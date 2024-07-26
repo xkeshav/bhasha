@@ -1,0 +1,54 @@
+{
+  "name": "@xkeshav/project",
+  "version": "0.0.1",
+  "private": false,
+  "displayName": "Project",
+  "description": "This is a <project> repository.",
+  "publisher": "@xkeshav",
+  "homepage": "https://github.com/xkeshav/project/blob/main/README.md",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xkeshav/project/issues",
+    "email": "xkeshav@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xkeshav/project.git"
+  },
+  "keywords": [
+    "project",
+    "github",
+    "template"
+  ],
+  "author": {
+    "name": "Keshav Mohta",
+    "email": "xkeshav@gmail.com"
+  },
+  "contributors": [],
+  "main": "src/index.js",
+  "scripts": {
+    "start": "tsc"
+  },
+  "dependencies": { 
+    "@xkeshav/day": "latest"
+  },
+  "timestamp": {
+    "createdOn": "Today"
+  },
+  "devDependencies":{ 
+      "typescript": "latest"
+  },
+  "peerDependencies": {},
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
