@@ -1,9 +1,9 @@
 import BhashiniTranslator from "@scaler-school-of-technology/bhashini-web-translator";
 import { useRef, useState, useId } from "react";
-import "./assets/styles/pop.css";
+import "./assets/styles/app.css";
 
-const BHASHINI_API_KEY = "3816246d10-bcc2-482c-9770-ca8d65c74531";
-const BHASHINI_USER_ID = "1b3dee391c3346b09e6de07602b3e0bd";
+const BHASHINI_API_KEY = import.meta.env.VITE_BHASHINI_API_KEY;
+const BHASHINI_USER_ID = import.meta.env.VITE_BHASHINI_USER_ID;
 
 
 const LANGUAGE_MAPPER = {
