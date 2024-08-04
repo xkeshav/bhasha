@@ -1,19 +1,19 @@
 {
-  "name": "@xkeshav/project",
+  "name": "@xkeshav/bhasha",
   "version": "0.0.1",
   "private": false,
-  "displayName": "Project",
-  "description": "This is a <project> repository.",
+  "displayName": "bhasha",
+  "description": "This is a bhasha repository.",
   "publisher": "@xkeshav",
-  "homepage": "https://github.com/xkeshav/project/blob/main/README.md",
+  "homepage": "https://github.com/xkeshav/bhasha/blob/main/README.md",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xkeshav/project/issues",
+    "url": "https://github.com/xkeshav/bhasha/issues",
     "email": "xkeshav@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xkeshav/project.git"
+    "url": "https://github.com/xkeshav/bhasha.git"
   },
   "keywords": [
     "project",
@@ -27,16 +27,32 @@
   "contributors": [],
   "main": "src/index.js",
   "scripts": {
-    "start": "tsc"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": { 
-    "@xkeshav/day": "latest"
+    "@xkeshav/day": "latest",
+    "@scaler-school-of-technology/bhashini-web-translator": "^0.0.27",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "dotenv": "^16.3.1"
   },
   "timestamp": {
     "createdOn": "Today"
   },
   "devDependencies":{ 
-      "typescript": "latest"
+      "typescript": "latest",
+      "@types/react": "^18.2.55",
+      "@types/react-dom": "^18.2.19",
+      "@vitejs/plugin-react": "^4.2.1",
+      "@vitejs/plugin-vue": "^5.0.4",
+      "eslint": "^8.56.0",
+      "eslint-plugin-react": "^7.33.2",
+      "eslint-plugin-react-hooks": "^4.6.0",
+      "eslint-plugin-react-refresh": "^0.4.5",
+      "vite": "^5.1.0"
   },
   "peerDependencies": {},
   "browserslist": {

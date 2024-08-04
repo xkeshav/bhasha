@@ -25,6 +25,9 @@
 			"titleBar.inactiveBackground": "#1b4b7e99",
 			"titleBar.inactiveForeground": "#e7e7e799"
 		},
-		"peacock.color": "#1b4b7e"
+		"peacock.color": "#1b4b7e",
+		"cSpell.words": [
+			"bhasha"
+		]
 	}
 }
