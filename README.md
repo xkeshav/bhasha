@@ -1,6 +1,8 @@
-# Template Repository
+# Bhasha
 
-This is project repository
+This is project repository for Bhasha
+
+here we have been trying to convert english content into 22 indian language
 
 ## How to start
 
@@ -14,7 +16,6 @@ This is project repository
 - After successful completion of above command, run
 
 ```sh
-> npm run start
+> npm run dev
 ```
 
-This command will output on which address, project is running; open that in browser
