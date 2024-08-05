@@ -134,8 +134,7 @@ const App = () => {
     </header>
     <main className="container__main">
       <section className="section__content" >
-          <label htmlFor={textAreaId}>Post your content below {targetLanguage && <span>(current language: <mark>{LANGUAGE_MAPPER[targetLanguage] || "English"}</mark> )</span>}
-          </label>
+          <label htmlFor={textAreaId}>Post your content below</label>
             <div className="center"><div className="loader"></div></div>
             <textarea 
             name="content" 
@@ -148,6 +147,8 @@ const App = () => {
             value={postContent} 
             autoFocus={true}
             onChange={onPost}></textarea>
+        {targetLanguage && <p>(current language: <mark>{LANGUAGE_MAPPER[targetLanguage] || "English"}</mark> )</p>}
+
       </section>
       <section key={rerenderKey} className="section__language" >
         <div className="selection" >

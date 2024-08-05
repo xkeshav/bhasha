@@ -166,8 +166,8 @@ p {
 }
 
 footer {
-    position: sticky;
-    bottom: 0px;
+    position: relative;
+    bottom: 0;
     border:1px solid grey;
     padding: 1rem;
 }
