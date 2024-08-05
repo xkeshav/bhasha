@@ -5,7 +5,6 @@ import "./assets/styles/app.css";
 const BHASHINI_API_KEY = import.meta.env.VITE_BHASHINI_API_KEY;
 const BHASHINI_USER_ID = import.meta.env.VITE_BHASHINI_USER_ID;
 
-
 const LANGUAGE_MAPPER = {
   as: "Assamese",
   bn: "Bengali",
@@ -72,6 +71,8 @@ const App = () => {
   const textRef = useRef();
   const textAreaId = useId();
 
+  const clickRef = useRef(false);
+
 
   const targetLanguageDropdown = document.querySelector("#targetLanguage");
   const errorMessage = document.querySelector(".error__message");
@@ -89,6 +90,7 @@ const App = () => {
       errorMessage.style.display = "flex";
       return;
     }
+    clickRef.current = false;
     errorMessage.style.display = "none";
     loader.style.display = "block";
     textRef.current.style.opacity = "0.25";
@@ -99,9 +101,11 @@ const App = () => {
         setPostContent(res.textContent);
         targetLanguageDropdown.removeAttribute("disabled");
         setSourceLanguage(targetLanguage);
+        clickRef.current = true;
         setRerenderKey((prev) => prev + 1);
       })
       .catch(() => {
+        clickRef.current = false;
         targetLanguageDropdown.removeAttribute("disabled");
       }).finally(()=> {
         loader.style.display = "none";
@@ -114,7 +118,7 @@ const App = () => {
     setPostContent(defaultContent);
     setSourceLanguage("en");
     setTargetLanguage("en");
-    // window.location.reload();
+    window.location.reload();
   };
 
   const onPost = (e) =>{
@@ -123,7 +127,28 @@ const App = () => {
   }
 
   return (
+    <>
+    <header>
+        <h1>Language Conversion Utility</h1>
+        <p>Basic utility which convert content into <b>22</b> indian languages.</p>
+    </header>
     <main className="container__main">
+      <section className="section__content" >
+          <label htmlFor={textAreaId}>Post your content below {targetLanguage && <span>(current language: <mark>{LANGUAGE_MAPPER[targetLanguage] || "English"}</mark> )</span>}
+          </label>
+            <div className="center"><div className="loader"></div></div>
+            <textarea 
+            name="content" 
+            id={textAreaId} 
+            className="content" 
+            placeholder="paste your content here" 
+            rows={20} 
+            cols={60} 
+            ref={textRef} 
+            value={postContent} 
+            autoFocus={true}
+            onChange={onPost}></textarea>
+      </section>
       <section key={rerenderKey} className="section__language" >
         <div className="selection" >
           <label className="selection__label" > Translate to: </label>
@@ -157,24 +182,14 @@ const App = () => {
             </button>
         </div>
       </section>
-      <section className="section__content" >
-          <label htmlFor={textAreaId}>Write your post below</label>
-            <div className="center"><div className="loader"></div></div>
-            <textarea 
-            name="content" 
-            id={textAreaId} 
-            className="content" 
-            placeholder="paste your content here" 
-            rows={20} 
-            cols={60} 
-            ref={textRef} 
-            value={postContent} 
-            onChange={onPost}></textarea>
-      </section>
       <div className="error__message" >
           <span>Please select a target language</span>
       </div>
     </main>
+    <footer>
+      &copy; 2024 | RecursiveZero pvt. ltd. | All rights reserved.
+    </footer>
+    </>
   );
 };
 

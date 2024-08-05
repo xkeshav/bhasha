@@ -1,4 +1,15 @@
+h1 {
+    background-color: black;
+    padding: 1rem;
+    color: white;
+}
+
+p {
+    color: blueviolet
+}
+
 .container__main {
+    container: main / inline-size;
     background-color: aliceblue;
     box-sizing: border-box;
     padding: 1rem;
@@ -13,15 +24,14 @@
     grid-area: language;
     padding: 0.30rem;
     background-color: white;
-    margin: 0;
     border-radius: 0.25rem;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    width: 50vw;
+    width: auto;
     height: fit-content;
-    width: 90vw;
     display: grid;
     justify-content: start;
     grid-auto-flow: column;
+    padding: 1rem;
 }
 
 .selection {
@@ -59,6 +69,8 @@
 
 .section__content {
     grid-area: content;
+    grid-auto-flow: row;
+    display: grid;
 
     & label {
         font-size: 2rem;
@@ -67,7 +79,7 @@
 }
 
 .content {
-    width: 90vw;
+    width: auto;
     min-height: calc(1.5rem * 4);
     height: 41vh;
     border: 0.25rem solid black;
@@ -97,6 +109,7 @@
     gap: 0.25rem;
     justify-content: center;
     align-items: center;
+    margin-left: 6rem;
 }
 
 .btn {
@@ -146,21 +159,39 @@
     padding: 1rem;
 }
 
+@container main (width < 800px) {
+    .section__language {
+        grid-auto-flow: row;
+    }
+}
+
+footer {
+    position: sticky;
+    bottom: 0px;
+    border:1px solid grey;
+    padding: 1rem;
+}
+
 .loader {
     display: none;
     width: 50px;
-    --b: 8px; 
+    --b: 8px;
     aspect-ratio: 1;
     border-radius: 50%;
     padding: 1px;
-    background: conic-gradient(#0000 10%,#f03355) content-box;
-    mask: repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
-    radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+    background: conic-gradient(#0000 10%, #f03355) content-box;
+    mask: repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+        radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
     -webkit-mask:
-      repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
-      radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+        repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+        radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
     -webkit-mask-composite: destination-in;
     mask-composite: intersect;
-    animation:l4 1s infinite steps(10);
-  }
-  @keyframes l4 {to{transform: rotate(1turn)}}
+    animation: l4 1s infinite steps(10);
+}
+
+@keyframes l4 {
+    to {
+        transform: rotate(1turn)
+    }
+}
